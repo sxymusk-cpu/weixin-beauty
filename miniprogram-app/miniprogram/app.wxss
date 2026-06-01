@@ -1,0 +1,14 @@
+/* 栀·美研所 — 全局基础样式 */
+@import "styles/theme.wxss";
+
+page {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  color: var(--ink-900);
+  background: var(--bg-page);
+  box-sizing: border-box;
+}
+
+/* 点击态抑制默认高亮 */
+button::after { border: none; }
+button { background: transparent; padding: 0; margin: 0; border: none; }

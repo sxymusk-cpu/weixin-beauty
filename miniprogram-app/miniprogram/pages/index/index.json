@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "service-card": "../../components/service-card/index"
+  }
+}

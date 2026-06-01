@@ -1,0 +1,114 @@
+/* 栀·美研所 — 服务卡片 */
+
+.scard {
+  background: #FFFFFF;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: var(--sh-2);
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+}
+
+/* ── 图片区 ── */
+.img-wrap {
+  width: 100%;
+  height: 180rpx;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #ece4f7 0%, #d8cced 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img { width: 100%; height: 100%; object-fit: cover; }
+
+.emoji { font-size: 76rpx; filter: drop-shadow(0 6rpx 10rpx rgba(0,0,0,0.08)); }
+
+.duration-tag {
+  position: absolute;
+  top: 16rpx; right: 16rpx;
+  background: rgba(255, 255, 255, 0.90);
+  color: #5A3F8A;
+  font-size: 20rpx;
+  font-weight: 600;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+/* ── 信息区 ── */
+.body { padding: 16rpx 20rpx 18rpx; }
+
+.name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--ink-900, #1F1B2E);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 标签 */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6rpx;
+  margin-top: 8rpx;
+}
+
+.tag {
+  font-size: 20rpx;
+  font-weight: 500;
+  padding: 4rpx 14rpx;
+  border-radius: 999rpx;
+}
+
+.tag-primary {
+  background: rgba(90, 63, 138, 0.10);
+  color: #5A3F8A;
+}
+
+.tag-plain {
+  background: rgba(90, 63, 138, 0.05);
+  color: #7A7390;
+}
+
+/* 价格 + 评分 */
+.foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.price-group {
+  display: flex;
+  align-items: baseline;
+  gap: 4rpx;
+  color: #B5503E;
+}
+
+.yen { font-size: 22rpx; font-weight: 600; }
+
+.price-num { font-size: 36rpx; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.orig-price {
+  font-size: 22rpx;
+  color: var(--ink-300, #BDB8CC);
+  text-decoration: line-through;
+  margin-left: 6rpx;
+}
+
+.rating {
+  display: flex;
+  align-items: baseline;
+}
+
+.star { font-size: 22rpx; color: #E8A82B; }
+
+.rating-num { font-size: 22rpx; font-weight: 600; color: var(--ink-700, #4A4560); margin-left: 4rpx; }
+
+.review-count { font-size: 20rpx; color: var(--ink-400, #9D98B0); }

@@ -1,0 +1,32 @@
+<!-- 栀·美研所 — 我的收藏 -->
+<view class="page">
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner">
+      <view class="back-btn" bindtap="onBack"><text class="back-icon">‹</text></view>
+      <text class="nav-title">我的收藏</text>
+    </view>
+  </view>
+
+  <scroll-view class="body" style="top: {{navH}}px;" scroll-y show-scrollbar="{{false}}">
+    <view wx:if="{{!loading && list.length === 0}}" class="empty">
+      <text class="empty-emoji">♥</text>
+      <text class="empty-text">还没有收藏的服务</text>
+      <text class="empty-sub">浏览服务时点♥即可收藏</text>
+    </view>
+
+    <view class="fav-item" wx:for="{{list}}" wx:key="id" bindtap="goDetail" data-id="{{item._id || item.id}}">
+      <image class="fav-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="fav-info">
+        <text class="fav-name">{{item.name}}</text>
+        <text class="fav-desc">{{item.desc}}</text>
+        <view class="fav-bottom">
+          <text class="fav-price">¥{{item.price}}</text>
+          <text class="fav-duration" wx:if="{{item.duration}}">{{item.duration}}分钟</text>
+        </view>
+      </view>
+      <view class="fav-remove" catchtap="onRemove" data-id="{{item._id || item.id}}">♥</view>
+    </view>
+
+    <view style="height: 40rpx;"></view>
+  </scroll-view>
+</view>

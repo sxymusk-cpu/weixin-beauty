@@ -1,0 +1,134 @@
+/* 栀·美研所 — 我的预约 */
+.page { position: relative; height: 100vh; background: var(--bg-page); }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; background: var(--bg-page); z-index: 100; }
+.nav-inner { height: 44px; display: flex; align-items: center; padding: 0 32rpx; }
+.nav-title { font-size: 36rpx; font-weight: 700; color: var(--ink-900); }
+
+/* Tab 筛选 */
+.tab-row {
+  position: fixed; left: 0; right: 0;
+  display: flex;
+  background: var(--bg-page);
+  padding: 0 32rpx 16rpx;
+  z-index: 99;
+  gap: 8rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 14rpx 0;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: var(--ink-500);
+  background: rgba(255,255,255,0.6);
+}
+
+.tab--active {
+  background: var(--violet-500);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 列表 */
+.list-scroll { position: fixed; bottom: 0; left: 0; right: 0; }
+
+/* 空状态 */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 0;
+  gap: 20rpx;
+}
+
+.empty-icon { font-size: 80rpx; }
+.empty-text { font-size: 28rpx; color: var(--ink-500); }
+
+.empty-btn {
+  margin-top: 12rpx;
+  background: var(--violet-500);
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 20rpx 56rpx;
+  border-radius: 999rpx;
+}
+
+/* 订单卡 */
+.order-list { padding: 24rpx 32rpx 0; display: flex; flex-direction: column; gap: 20rpx; }
+
+.order-card {
+  background: #fff;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: var(--sh-2);
+}
+
+.card-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 24rpx 16rpx;
+  border-bottom: 1rpx solid var(--line-100);
+}
+
+.order-date { font-size: 24rpx; color: var(--ink-500); font-variant-numeric: tabular-nums; }
+
+.status-badge {
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx 24rpx;
+}
+
+.emoji-wrap {
+  width: 80rpx; height: 80rpx;
+  border-radius: 20rpx;
+  background: var(--violet-50);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.order-emoji { font-size: 44rpx; }
+
+.order-info { flex: 1; min-width: 0; }
+.order-name { display: block; font-size: 30rpx; font-weight: 600; color: var(--ink-900); }
+.order-meta { display: block; font-size: 22rpx; color: var(--ink-500); margin-top: 6rpx; }
+
+.order-price-wrap { flex-shrink: 0; }
+.order-price { font-size: 32rpx; font-weight: 700; color: var(--price); }
+
+.card-ft {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16rpx;
+  padding: 0 24rpx 20rpx;
+}
+
+.action-ghost {
+  padding: 14rpx 32rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: var(--ink-500);
+  background: var(--bg-page);
+}
+
+.action-primary {
+  padding: 14rpx 32rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #fff;
+  background: var(--violet-500);
+}
+
+.safe-footer { height: calc(140rpx + env(safe-area-inset-bottom)); }

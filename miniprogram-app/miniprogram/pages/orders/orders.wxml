@@ -1,0 +1,69 @@
+<!-- 栀·美研所 — 我的预约 -->
+<view class="page">
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner"><text class="nav-title">我的预约</text></view>
+  </view>
+
+  <!-- 状态筛选 -->
+  <view class="tab-row" style="top: {{navH}}px;">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="tab {{activeTab === item.key ? 'tab--active' : ''}}"
+      bindtap="onTab"
+      data-key="{{item.key}}"
+    >{{item.label}}</view>
+  </view>
+
+  <scroll-view class="list-scroll" scroll-y show-scrollbar="{{false}}" style="top: calc({{navH}}px + 88rpx);">
+
+    <!-- 空状态 -->
+    <view wx:if="{{list.length === 0}}" class="empty">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无预约记录</text>
+      <view class="empty-btn" bindtap="goBook">去预约</view>
+    </view>
+
+    <!-- 订单列表 -->
+    <view wx:else class="order-list">
+      <view
+        wx:for="{{list}}"
+        wx:key="_id"
+        class="order-card"
+      >
+        <!-- 顶部：状态 + 日期 -->
+        <view class="card-hd">
+          <text class="order-date">{{item.date}} {{item.time}}</text>
+          <view class="status-badge" style="background: {{statusMap[item.status].bg}}; color: {{statusMap[item.status].color}};">
+            {{statusMap[item.status].text}}
+          </view>
+        </view>
+
+        <!-- 服务信息 -->
+        <view class="card-body">
+          <view class="emoji-wrap">
+            <text class="order-emoji">{{item.emoji}}</text>
+          </view>
+          <view class="order-info">
+            <text class="order-name">{{item.serviceName}}</text>
+            <text class="order-meta">{{item.duration}} 分钟</text>
+          </view>
+          <view class="order-price-wrap">
+            <text class="order-price">¥{{item.price}}</text>
+          </view>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="card-ft" wx:if="{{item.status === 'confirmed' || item.status === 'pending'}}">
+          <view class="action-ghost" bindtap="onCancel" data-id="{{item._id}}">取消预约</view>
+          <view class="action-primary" bindtap="goBook">再次预约</view>
+        </view>
+        <view class="card-ft" wx:elif="{{item.status === 'done'}}">
+          <view class="action-ghost" bindtap="goBook">再次预约</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="safe-footer"></view>
+  </scroll-view>
+</view>

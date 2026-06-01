@@ -1,0 +1,303 @@
+/* 栀·美研所 — 预约页 */
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-page);
+}
+
+/* ── 导航栏 ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--bg-page);
+  z-index: 100;
+}
+
+.nav-inner {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+/* ── 滚动区 ── */
+.scroll-area {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+}
+
+/* ── Step 卡 ── */
+.step-card {
+  margin: 24rpx 32rpx 0;
+  background: var(--white);
+  border-radius: 36rpx;
+  padding: 28rpx;
+  box-shadow: var(--sh-2);
+}
+
+.step-hd {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.step-num {
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: var(--violet-500);
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+/* ── 分类 chip ── */
+.cat-scroll { white-space: nowrap; margin-bottom: 20rpx; }
+
+.cat-row { display: flex; gap: 12rpx; }
+
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  background: var(--violet-50);
+  color: var(--ink-700);
+  flex-shrink: 0;
+  transition: all 0.18s;
+}
+
+.cat-chip--active {
+  background: var(--violet-500);
+  color: #fff;
+}
+
+/* ── 服务列表 ── */
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx 16rpx;
+  border-radius: 24rpx;
+  background: var(--bg-page);
+  transition: all 0.18s;
+}
+
+.service-row--active {
+  background: rgba(90, 63, 138, 0.08);
+}
+
+.srow-emoji-wrap {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 18rpx;
+  background: rgba(90, 63, 138, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.srow-emoji { font-size: 40rpx; }
+
+.srow-info { flex: 1; min-width: 0; }
+
+.srow-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.srow-meta {
+  display: block;
+  font-size: 22rpx;
+  color: var(--ink-500);
+  margin-top: 4rpx;
+}
+
+.srow-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8rpx;
+}
+
+.srow-price {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--violet-500);
+}
+
+.srow-check {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--ink-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.srow-check--on {
+  background: var(--violet-500);
+  border-color: var(--violet-500);
+}
+
+.check-icon { color: #fff; font-size: 22rpx; }
+
+/* ── 日期选择器 ── */
+.date-scroll { white-space: nowrap; }
+.date-row { display: flex; gap: 16rpx; }
+
+.date-chip {
+  flex-shrink: 0;
+  min-width: 100rpx;
+  padding: 20rpx 14rpx;
+  border-radius: 24rpx;
+  background: var(--bg-page);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.date-chip--active { background: var(--violet-500); }
+.date-chip--full   { opacity: 0.45; }
+
+.chip-week  { font-size: 20rpx; color: var(--ink-500); display: block; }
+.chip-date  { font-size: 28rpx; font-weight: 600; color: var(--ink-900); display: block; font-variant-numeric: tabular-nums; }
+.chip-avail { font-size: 18rpx; color: var(--violet-500); display: block; }
+
+.date-chip--active .chip-week  { color: rgba(255,255,255,0.8); }
+.date-chip--active .chip-date  { color: #fff; }
+.date-chip--active .chip-avail { color: rgba(255,255,255,0.7); }
+
+/* ── 时段网格 ── */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+}
+
+.slot {
+  padding: 18rpx 0;
+  border-radius: 16rpx;
+  background: var(--bg-page);
+  text-align: center;
+}
+
+.slot--active { background: var(--violet-500); }
+.slot--full   { opacity: 0.35; }
+
+.slot-time {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: var(--ink-900);
+  font-variant-numeric: tabular-nums;
+}
+
+.slot--active .slot-time { color: #fff; }
+.slot--full   .slot-time { color: var(--ink-400); }
+
+/* ── 备注 ── */
+.remark-input {
+  width: 100%;
+  min-height: 120rpx;
+  background: var(--bg-page);
+  border-radius: 20rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+  color: var(--ink-900);
+  line-height: 1.6;
+}
+
+.remark-ph { color: var(--ink-400); }
+
+/* ── 底部预约条 ── */
+.book-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #fff;
+  border-top: 1rpx solid var(--line-100);
+  padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  z-index: 100;
+}
+
+.book-summary { flex: 1; min-width: 0; }
+
+.book-sum-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--ink-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-sum-meta {
+  display: block;
+  font-size: 22rpx;
+  color: var(--ink-500);
+  margin-top: 4rpx;
+}
+
+.book-summary--empty .book-sum-hint {
+  display: block;
+  font-size: 26rpx;
+  color: var(--ink-400);
+}
+
+.book-btn {
+  flex-shrink: 0;
+  background: var(--violet-500);
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 24rpx 40rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+}
+
+.book-btn--disabled {
+  background: var(--ink-300);
+}
+
+.book-btn-price { font-size: 24rpx; opacity: 0.85; }
+
+/* ── 安全区 ── */
+.safe-footer { height: calc(160rpx + env(safe-area-inset-bottom)); }

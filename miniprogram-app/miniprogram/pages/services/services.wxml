@@ -1,0 +1,30 @@
+<!-- 栀·美研所 — 全部项目 -->
+<view class="page">
+  <!-- 分类筛选 -->
+  <scroll-view class="cat-bar" scroll-x show-scrollbar="{{false}}">
+    <view class="cat-row">
+      <view
+        class="cat-chip {{activeCat === '' ? 'cat-chip--active' : ''}}"
+        bindtap="onCat" data-id=""
+      >全部</view>
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="cat-chip {{activeCat === item.id ? 'cat-chip--active' : ''}}"
+        bindtap="onCat" data-id="{{item.id}}"
+      >{{item.name}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 服务网格 -->
+  <scroll-view class="grid-scroll" scroll-y show-scrollbar="{{false}}">
+    <view class="service-grid">
+      <service-card
+        wx:for="{{list}}"
+        wx:key="_id"
+        service="{{item}}"
+      />
+    </view>
+    <view class="safe-footer"></view>
+  </scroll-view>
+</view>

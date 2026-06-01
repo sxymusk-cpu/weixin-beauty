@@ -1,0 +1,85 @@
+/* =========================================================
+   栀·美研所 — 设计系统 (MiniKit · 雅紫 Elegant 配色)
+   ========================================================= */
+
+page {
+  /* ── 品牌主色 — 雅紫 ── */
+  --violet-50:  #F2EEF9;
+  --violet-100: #DCCEF0;
+  --violet-200: #B9A1E1;
+  --violet-300: #9070C8;
+  --violet-400: #6A49A8;
+  --violet-500: #5A3F8A;   /* ← primary */
+  --violet-600: #47317A;
+  --violet-700: #33225C;
+  --violet-800: #221645;
+
+  /* ── 页面底色 — 淡紫调 ── */
+  --bg-page:  #EEE9F6;
+  --bg-page2: #E5DEF0;
+
+  /* ── 中性墨色 ── */
+  --ink-900: #1F1B2E;
+  --ink-700: #4A4560;
+  --ink-500: #7A7390;
+  --ink-400: #9D98B0;
+  --ink-300: #BDB8CC;
+  --ink-100: #E5E2EE;
+
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --line-100: rgba(90, 63, 138, 0.07);
+  --line-200: rgba(90, 63, 138, 0.12);
+
+  /* ── 语义色 ── */
+  --success:    #3D8E5C;
+  --success-bg: #EEF6F0;
+  --warning:    #C28A2A;
+  --warning-bg: #FAF1DA;
+  --error:      #B5503E;
+  --error-bg:   #FAE6E0;
+
+  /* ── 价格色 ── */
+  --price: #B5503E;
+
+  /* ── 阴影（MiniKit 标准） ── */
+  --sh-1:   0 2rpx 4rpx rgba(15, 20, 25, 0.04);
+  --sh-2:   0 4rpx 16rpx rgba(15, 20, 25, 0.05), 0 2rpx 4rpx rgba(15, 20, 25, 0.04);
+  --sh-3:   0 12rpx 40rpx rgba(15, 20, 25, 0.06), 0 4rpx 8rpx rgba(15, 20, 25, 0.03);
+  --sh-pop: 0 24rpx 72rpx rgba(15, 20, 25, 0.12), 0 8rpx 16rpx rgba(15, 20, 25, 0.06);
+
+  /* ── 圆角 ── */
+  --r-xs:   8rpx;
+  --r-sm:   16rpx;
+  --r-md:   24rpx;
+  --r-lg:   36rpx;
+  --r-xl:   48rpx;
+  --r-pill: 999rpx;
+
+  /* ── 间距（4rpx base）── */
+  --sp-1:  8rpx;
+  --sp-2:  16rpx;
+  --sp-3:  24rpx;
+  --sp-4:  32rpx;
+  --sp-5:  40rpx;
+  --sp-6:  48rpx;
+
+  /* ── 字体 ── */
+  --font-body:    -apple-system, BlinkMacSystemFont, "PingFang SC",
+                  "Noto Sans SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-display: "PingFang SC", "Noto Sans SC", serif;
+
+  /* ── 字号 ── */
+  --fs-xs:   20rpx;
+  --fs-sm:   22rpx;
+  --fs-base: 28rpx;
+  --fs-md:   30rpx;
+  --fs-lg:   34rpx;
+  --fs-xl:   40rpx;
+  --fs-2xl:  48rpx;
+
+  /* ── 动效 ── */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur:  220ms;
+}

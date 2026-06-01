@@ -1,0 +1,35 @@
+/* 栀·美研所 — 我的收藏 */
+.page { height: 100vh; background: #F5F3F9; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #FFFFFF; }
+.nav-inner { height: 44px; display: flex; align-items: center; justify-content: center; position: relative; }
+.back-btn { position: absolute; left: 12rpx; width: 60rpx; height: 44px; display: flex; align-items: center; justify-content: center; }
+.back-icon { font-size: 44rpx; color: #5A3F8A; }
+.nav-title { font-size: 34rpx; font-weight: 600; color: #2B2640; }
+
+.body { position: fixed; left: 0; right: 0; bottom: 0; padding: 24rpx; box-sizing: border-box; }
+
+.empty { display: flex; flex-direction: column; align-items: center; padding-top: 160rpx; }
+.empty-emoji { font-size: 100rpx; color: #D8D2E6; margin-bottom: 24rpx; }
+.empty-text { font-size: 30rpx; color: #6B6680; margin-bottom: 12rpx; }
+.empty-sub { font-size: 24rpx; color: #A8A4B8; }
+
+.fav-item {
+  display: flex; background: #FFFFFF; border-radius: 18rpx;
+  padding: 20rpx; margin-bottom: 20rpx; position: relative;
+  box-shadow: 0 4rpx 16rpx rgba(90, 63, 138, 0.05);
+}
+.fav-img { width: 150rpx; height: 150rpx; border-radius: 14rpx; flex-shrink: 0; background: #F2F0F7; }
+.fav-info { flex: 1; padding-left: 20rpx; display: flex; flex-direction: column; }
+.fav-name { font-size: 30rpx; font-weight: 600; color: #2B2640; margin-bottom: 8rpx; }
+.fav-desc {
+  font-size: 24rpx; color: #8B8699; margin-bottom: auto;
+  overflow: hidden; text-overflow: ellipsis; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.fav-bottom { display: flex; align-items: baseline; gap: 16rpx; margin-top: 12rpx; }
+.fav-price { font-size: 32rpx; font-weight: 700; color: #C8554E; }
+.fav-duration { font-size: 22rpx; color: #A8A4B8; }
+.fav-remove {
+  position: absolute; right: 24rpx; top: 24rpx;
+  font-size: 40rpx; color: #5A3F8A;
+}

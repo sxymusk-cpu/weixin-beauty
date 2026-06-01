@@ -1,0 +1,112 @@
+<!-- 栀·美研所 — 首页 -->
+<view class="page">
+
+  <!-- ── 导航栏 ── -->
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner" style="padding-right: {{navRightPad}}px;">
+      <view class="brand">
+        <view class="brand-mark">栀</view>
+        <view class="brand-info">
+          <text class="brand-name">栀·美研所</text>
+          <text class="brand-slogan">高定护肤 · 体验式服务</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ── 主滚动区 ── -->
+  <scroll-view class="scroll-area" scroll-y enhanced show-scrollbar="{{false}}" style="top: {{navH}}px;">
+
+    <!-- 店铺 Hero 卡 -->
+    <view class="hero-card">
+      <!-- 主视觉区 -->
+      <view class="hero-banner">
+        <view class="hero-banner-labels">
+          <text class="hero-bl-tag">高定护肤</text>
+          <text class="hero-bl-tag">皮肤管理中心</text>
+        </view>
+        <view class="hero-score-row">
+          <text class="score-star">★</text>
+          <text class="score-val">4.9</text>
+          <text class="score-count">1,203 评价</text>
+          <text class="score-sep">·</text>
+          <text class="score-dist">市中心 798 旁</text>
+        </view>
+      </view>
+      <!-- 标签行 -->
+      <view class="hero-meta">
+        <text class="hero-tag">VIP 8 折</text>
+        <text class="hero-tag hero-tag--warn">本周有空档</text>
+        <text class="hero-tag hero-tag--plain">{{storeInfo.address || '市中心 · 798 艺术区旁'}}</text>
+      </view>
+      <!-- 公告 -->
+      <view class="hero-notice">
+        <text class="notice-icon">📣</text>
+        <text class="notice-text">5 月特惠 · 新客首次体验 9 折 · 满 500 享赠品</text>
+      </view>
+    </view>
+
+    <!-- 三宫格入口 -->
+    <view class="tile-trio">
+      <view class="tile tile-primary" bindtap="goServices" data-cat="skin">
+        <text class="tile-name">皮肤管理</text>
+        <text class="tile-sub">12 项体验</text>
+      </view>
+      <view class="tile" bindtap="goServices" data-cat="nail">
+        <text class="tile-name">美甲美睫</text>
+        <text class="tile-sub">本月新品</text>
+      </view>
+      <view class="tile" bindtap="goServices" data-cat="spa">
+        <text class="tile-name">私教 SPA</text>
+        <text class="tile-sub">需提前预约</text>
+      </view>
+    </view>
+
+    <!-- 本周可预约 -->
+    <view class="section-hd">
+      <view class="section-left">
+        <view class="section-bar"></view>
+        <text class="section-title">本周可预约</text>
+      </view>
+      <text class="section-action" bindtap="goBook">选择日期 ›</text>
+    </view>
+
+    <scroll-view class="date-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="date-row">
+        <view
+          wx:for="{{weekDays}}"
+          wx:key="fullDate"
+          class="date-chip {{item.active ? 'date-chip--active' : ''}} {{item.full ? 'date-chip--full' : ''}}"
+          bindtap="onDateTap"
+          data-index="{{index}}"
+        >
+          <text class="chip-week">{{item.label}}</text>
+          <text class="chip-date">{{item.date}}</text>
+          <text class="chip-avail">{{item.full ? '已满' : item.active ? '推荐' : '可约'}}</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 热门项目 -->
+    <view class="section-hd">
+      <view class="section-left">
+        <view class="section-bar"></view>
+        <text class="section-title">热门项目</text>
+      </view>
+      <text class="section-action" bindtap="goServices" data-cat="">全部项目 ›</text>
+    </view>
+
+    <view class="service-grid">
+      <service-card
+        wx:for="{{hotServices}}"
+        wx:key="_id"
+        service="{{item}}"
+      />
+    </view>
+
+    <!-- 底部安全区 -->
+    <view class="safe-footer"></view>
+
+  </scroll-view>
+
+</view>

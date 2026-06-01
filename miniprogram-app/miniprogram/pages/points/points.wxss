@@ -1,0 +1,47 @@
+/* 栀·美研所 — 积分明细 */
+.page { height: 100vh; background: #F5F3F9; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #FFFFFF; }
+.nav-inner { height: 44px; display: flex; align-items: center; justify-content: center; position: relative; }
+.back-btn { position: absolute; left: 12rpx; width: 60rpx; height: 44px; display: flex; align-items: center; justify-content: center; }
+.back-icon { font-size: 44rpx; color: #5A3F8A; }
+.nav-title { font-size: 34rpx; font-weight: 600; color: #2B2640; }
+
+.body { position: fixed; left: 0; right: 0; bottom: 0; padding: 24rpx; box-sizing: border-box; }
+
+.balance-card {
+  background: linear-gradient(135deg, #5A3F8A, #8B6BC0);
+  border-radius: 24rpx; padding: 44rpx 36rpx;
+  display: flex; align-items: center; justify-content: space-between;
+  color: #FFFFFF; box-shadow: 0 8rpx 28rpx rgba(90, 63, 138, 0.25);
+}
+.balance-label { font-size: 26rpx; opacity: 0.9; display: block; margin-bottom: 12rpx; }
+.balance-num { font-size: 80rpx; font-weight: 800; line-height: 1; }
+.checkin-btn {
+  background: rgba(255,255,255,0.25); border: 1rpx solid rgba(255,255,255,0.5);
+  color: #FFFFFF; font-size: 26rpx; font-weight: 600;
+  padding: 18rpx 32rpx; border-radius: 40rpx;
+}
+.checkin-btn.done { opacity: 0.55; }
+
+.rule-tip {
+  font-size: 24rpx; color: #8B8699; text-align: center;
+  margin: 24rpx 0; padding: 16rpx; background: #FFFFFF; border-radius: 14rpx;
+}
+
+.log-section { background: #FFFFFF; border-radius: 20rpx; padding: 28rpx 28rpx; margin-top: 8rpx; }
+.section-title { font-size: 28rpx; font-weight: 600; color: #2B2640; display: block; margin-bottom: 16rpx; }
+.empty { display: flex; flex-direction: column; align-items: center; padding: 60rpx 0; }
+.empty-emoji { font-size: 80rpx; margin-bottom: 16rpx; }
+.empty-text { font-size: 26rpx; color: #A8A4B8; }
+
+.log-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22rpx 0; border-bottom: 1rpx solid #F2F0F7;
+}
+.log-item:last-child { border-bottom: none; }
+.log-left { display: flex; flex-direction: column; }
+.log-type { font-size: 28rpx; color: #2B2640; margin-bottom: 6rpx; }
+.log-date { font-size: 22rpx; color: #A8A4B8; }
+.log-amount { font-size: 32rpx; font-weight: 700; }
+.log-amount.plus { color: #5A3F8A; }
+.log-amount.minus { color: #C8554E; }

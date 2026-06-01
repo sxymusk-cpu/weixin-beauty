@@ -1,0 +1,95 @@
+<!-- 栀·美研所 — 我的 -->
+<view class="page">
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner"><text class="nav-title">我的</text></view>
+  </view>
+
+  <scroll-view class="scroll-area" scroll-y show-scrollbar="{{false}}" style="top: {{navH}}px;">
+
+    <!-- 用户信息卡 -->
+    <view class="user-card">
+      <view class="avatar-wrap">
+        <text class="avatar-text">{{avatarInitial}}</text>
+      </view>
+      <view class="user-info">
+        <text class="user-name">{{userInfo.nickName || '未登录'}}</text>
+        <text class="user-sub">{{userInfo.phone || '点击登录享专属权益'}}</text>
+      </view>
+      <view class="login-btn" wx:if="{{!isLogin}}" bindtap="onLogin">登录</view>
+    </view>
+
+    <!-- VIP 卡 -->
+    <view class="vip-card">
+      <view class="vip-left">
+        <text class="vip-crown">♛</text>
+        <view>
+          <text class="vip-title">栀研会员</text>
+          <text class="vip-sub">当前等级：银卡会员</text>
+        </view>
+      </view>
+      <view class="vip-right">
+        <text class="vip-discount">8 折</text>
+        <text class="vip-disc-label">专属折扣</text>
+      </view>
+    </view>
+
+    <!-- 数据统计 -->
+    <view class="stats-row">
+      <view class="stat-item" bindtap="goOrders" data-tab="done">
+        <text class="stat-num">{{stats.done}}</text>
+        <text class="stat-label">已完成</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item" bindtap="goOrders" data-tab="confirmed">
+        <text class="stat-num">{{stats.confirmed}}</text>
+        <text class="stat-label">待到店</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.points}}</text>
+        <text class="stat-label">积分</text>
+      </view>
+    </view>
+
+    <!-- 菜单 -->
+    <view class="menu-group">
+      <view class="menu-item" bindtap="goOrders">
+        <text class="menu-icon">📋</text>
+        <text class="menu-text">我的预约</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-item" bindtap="goFavorites">
+        <text class="menu-icon">♥</text>
+        <text class="menu-text">我的收藏</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-item" bindtap="goCoupon">
+        <text class="menu-icon">🎫</text>
+        <text class="menu-text">优惠券</text>
+        <view class="menu-badge" wx:if="{{couponCount > 0}}">{{couponCount}}</view>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-item" bindtap="goPoints">
+        <text class="menu-icon">⭐</text>
+        <text class="menu-text">积分明细</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="onCallStore">
+        <text class="menu-icon">📞</text>
+        <text class="menu-text">联系门店</text>
+        <text class="menu-phone">{{storeInfo.phone || '400-888-8888'}}</text>
+        <text class="menu-arrow">›</text>
+      </view>
+      <view class="menu-item" bindtap="onSettings">
+        <text class="menu-icon">⚙️</text>
+        <text class="menu-text">设置</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="safe-footer"></view>
+  </scroll-view>
+</view>

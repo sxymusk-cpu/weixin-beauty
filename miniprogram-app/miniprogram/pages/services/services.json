@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "全部项目",
+  "usingComponents": {
+    "service-card": "../../components/service-card/index"
+  }
+}

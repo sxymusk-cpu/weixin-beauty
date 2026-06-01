@@ -1,0 +1,10 @@
+node_modules/
+.claude/
+miniprogram-app/project.private.config.json
+miniprogram-app/miniprogram/utils/config.js
+# 根目录的图片素材
+/*.jpg
+/*.png
+*.docx
+__pycache__/
+*.pyc

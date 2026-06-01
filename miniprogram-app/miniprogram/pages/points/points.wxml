@@ -1,0 +1,47 @@
+<!-- 栀·美研所 — 积分明细 -->
+<view class="page">
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner">
+      <view class="back-btn" bindtap="onBack"><text class="back-icon">‹</text></view>
+      <text class="nav-title">积分明细</text>
+    </view>
+  </view>
+
+  <scroll-view class="body" style="top: {{navH}}px;" scroll-y show-scrollbar="{{false}}">
+    <!-- 余额卡 -->
+    <view class="balance-card">
+      <view class="balance-info">
+        <text class="balance-label">我的积分</text>
+        <text class="balance-num">{{balance}}</text>
+      </view>
+      <view class="checkin-btn {{checkedToday ? 'done' : ''}}" bindtap="onCheckin">
+        {{checkedToday ? '已签到' : '签到 +' + (config.daily_checkin_points || 10)}}
+      </view>
+    </view>
+
+    <!-- 规则提示 -->
+    <view class="rule-tip" wx:if="{{config.points_per_yuan}}">
+      每消费 1 元得 1 积分 · {{config.points_per_yuan}} 积分可抵 1 元
+    </view>
+
+    <!-- 流水 -->
+    <view class="log-section">
+      <text class="section-title">积分明细</text>
+      <view wx:if="{{!loading && logs.length === 0}}" class="empty">
+        <text class="empty-emoji">⭐</text>
+        <text class="empty-text">暂无积分记录</text>
+      </view>
+      <view class="log-item" wx:for="{{logs}}" wx:key="id">
+        <view class="log-left">
+          <text class="log-type">{{typeMap[item.type] || item.note}}</text>
+          <text class="log-date">{{item.date}}</text>
+        </view>
+        <text class="log-amount {{item.amount > 0 ? 'plus' : 'minus'}}">
+          {{item.amount > 0 ? '+' : ''}}{{item.amount}}
+        </text>
+      </view>
+    </view>
+
+    <view style="height: 40rpx;"></view>
+  </scroll-view>
+</view>

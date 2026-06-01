@@ -1,0 +1,143 @@
+<!-- 栀·美研所 — 预约页 -->
+<view class="page">
+
+  <!-- ── 导航栏 ── -->
+  <view class="nav" style="padding-top: {{statusBarH}}px;">
+    <view class="nav-inner">
+      <text class="nav-title">立即预约</text>
+    </view>
+  </view>
+
+  <scroll-view class="scroll-area" scroll-y enhanced show-scrollbar="{{false}}" style="top: {{navH}}px;">
+
+    <!-- Step 1: 选择服务 -->
+    <view class="step-card">
+      <view class="step-hd">
+        <view class="step-num">1</view>
+        <text class="step-title">选择服务</text>
+      </view>
+
+      <!-- 分类 Tab -->
+      <scroll-view class="cat-scroll" scroll-x show-scrollbar="{{false}}">
+        <view class="cat-row">
+          <view
+            wx:for="{{categories}}"
+            wx:key="id"
+            class="cat-chip {{activeCat === item.id ? 'cat-chip--active' : ''}}"
+            bindtap="onCatTap"
+            data-id="{{item.id}}"
+          >{{item.name}}</view>
+        </view>
+      </scroll-view>
+
+      <!-- 服务选项列表 -->
+      <view class="service-list">
+        <view
+          wx:for="{{filteredServices}}"
+          wx:key="_id"
+          class="service-row {{selectedService._id === item._id ? 'service-row--active' : ''}}"
+          bindtap="onServiceSelect"
+          data-id="{{item._id}}"
+        >
+          <view class="srow-emoji-wrap">
+            <text class="srow-emoji">{{item.emoji}}</text>
+          </view>
+          <view class="srow-info">
+            <text class="srow-name">{{item.name}}</text>
+            <text class="srow-meta">{{item.duration}} 分钟 · ★ {{item.rating}}</text>
+          </view>
+          <view class="srow-right">
+            <text class="srow-price">¥{{item.price}}</text>
+            <view class="srow-check {{selectedService._id === item._id ? 'srow-check--on' : ''}}">
+              <text wx:if="{{selectedService._id === item._id}}" class="check-icon">✓</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Step 2: 选择日期 -->
+    <view class="step-card">
+      <view class="step-hd">
+        <view class="step-num">2</view>
+        <text class="step-title">选择日期</text>
+      </view>
+
+      <scroll-view class="date-scroll" scroll-x show-scrollbar="{{false}}">
+        <view class="date-row">
+          <view
+            wx:for="{{weekDays}}"
+            wx:key="fullDate"
+            class="date-chip {{item.active ? 'date-chip--active' : ''}} {{item.full ? 'date-chip--full' : ''}}"
+            bindtap="onDateTap"
+            data-index="{{index}}"
+          >
+            <text class="chip-week">{{item.label}}</text>
+            <text class="chip-date">{{item.date}}</text>
+            <text class="chip-avail">{{item.full ? '已满' : item.active ? '已选' : '可约'}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- Step 3: 选择时段 -->
+    <view class="step-card">
+      <view class="step-hd">
+        <view class="step-num">3</view>
+        <text class="step-title">选择时段</text>
+      </view>
+
+      <view class="slot-grid">
+        <view
+          wx:for="{{timeSlots}}"
+          wx:key="time"
+          class="slot {{item.full ? 'slot--full' : ''}} {{selectedTime === item.time ? 'slot--active' : ''}}"
+          bindtap="onSlotTap"
+          data-time="{{item.time}}"
+          data-full="{{item.full}}"
+        >
+          <text class="slot-time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- Step 4: 备注 -->
+    <view class="step-card">
+      <view class="step-hd">
+        <view class="step-num">4</view>
+        <text class="step-title">备注（选填）</text>
+      </view>
+      <textarea
+        class="remark-input"
+        placeholder="如有特殊需求，请填写（过敏史、肤质偏好等）"
+        placeholder-class="remark-ph"
+        maxlength="200"
+        bindinput="onRemarkInput"
+        value="{{remark}}"
+      />
+    </view>
+
+    <!-- 底部安全区 -->
+    <view class="safe-footer"></view>
+
+  </scroll-view>
+
+  <!-- ── 底部预约按钮 ── -->
+  <view class="book-bar">
+    <view class="book-summary" wx:if="{{selectedService._id}}">
+      <text class="book-sum-name">{{selectedService.name}}</text>
+      <text class="book-sum-meta">{{selectedDate}} {{selectedTime ? '· ' + selectedTime : ''}}</text>
+    </view>
+    <view class="book-summary book-summary--empty" wx:else>
+      <text class="book-sum-hint">请选择服务、日期和时段</text>
+    </view>
+    <view
+      class="book-btn {{canBook ? '' : 'book-btn--disabled'}}"
+      bindtap="onSubmit"
+    >
+      <text class="book-btn-price" wx:if="{{selectedService.price}}">¥{{selectedService.price}} · </text>
+      <text>立即预约</text>
+    </view>
+  </view>
+
+</view>

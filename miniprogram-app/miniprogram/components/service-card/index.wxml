@@ -1,0 +1,34 @@
+<view class="scard" bindtap="onTap">
+  <!-- 图片 / Emoji 区 -->
+  <view class="img-wrap">
+    <image wx:if="{{service.image}}" class="img" src="{{service.image}}" mode="aspectFill" lazy-load />
+    <text wx:else class="emoji">{{service.emoji || '✨'}}</text>
+
+    <!-- 时长角标 -->
+    <view class="duration-tag">{{service.duration}} 分钟</view>
+  </view>
+
+  <!-- 信息区 -->
+  <view class="body">
+    <text class="name">{{service.name}}</text>
+
+    <!-- 标签 -->
+    <view class="tags" wx:if="{{service.tags && service.tags.length}}">
+      <text wx:for="{{service.tags}}" wx:key="*this" class="tag {{index === 0 ? 'tag-primary' : 'tag-plain'}}">{{item}}</text>
+    </view>
+
+    <!-- 价格 + 评分 -->
+    <view class="foot">
+      <view class="price-group">
+        <text class="yen">¥</text>
+        <text class="price-num">{{service.price}}</text>
+        <text wx:if="{{service.originalPrice}}" class="orig-price">¥{{service.originalPrice}}</text>
+      </view>
+      <view class="rating">
+        <text class="star">★</text>
+        <text class="rating-num">{{service.rating}}</text>
+        <text class="review-count"> · {{service.reviewCount}}评</text>
+      </view>
+    </view>
+  </view>
+</view>
