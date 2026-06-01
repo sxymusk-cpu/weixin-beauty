@@ -135,10 +135,23 @@ async function getCoupons() {
   }
 }
 
+async function claimCoupon(templateId) {
+  return await http.post(`/coupons/${templateId}/claim/`);
+}
+
+async function getMyCoupons(status) {
+  try {
+    const data = await http.get('/my-coupons/', status ? { status } : {});
+    return { list: data.data || [], counts: data.counts || {} };
+  } catch {
+    return { list: [], counts: {} };
+  }
+}
+
 module.exports = {
   login, getMe,
   getCategories, getServices, getServiceDetail, getFeaturedServices,
   getStylists, getTimeSlots,
   createAppointment, getAppointments, cancelAppointment,
-  getPoints, checkin, getCoupons,
+  getPoints, checkin, getCoupons, claimCoupon, getMyCoupons,
 };
